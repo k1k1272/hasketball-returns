@@ -1,4 +1,6 @@
 import React from 'react'
+import { selectPlayer } from '../action'
+import { connect } from 'react-redux'
 
 const Player = ({ player, selectPlayer }) => {
   return (
@@ -8,4 +10,10 @@ const Player = ({ player, selectPlayer }) => {
   )
 }
 
-export default Player
+let mapDispatchToProps = (dispatch) => {
+  return {
+    selectPlayer: (player) => {dispatch(selectPlayer(player))}
+  }
+}
+
+export default connect(null, mapDispatchToProps)(Player)
